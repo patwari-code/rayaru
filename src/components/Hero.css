@@ -1,0 +1,70 @@
+.hero-section {
+  padding: 80px 32px 40px;
+  text-align: center;
+  position: relative;
+}
+
+.hero-content {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: rgba(255, 255, 255, 0.35);
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+
+.hero-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #00f0ff;
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.6);
+  animation: dotPulse 2s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 10px rgba(0, 240, 255, 0.6); }
+  50% { opacity: 0.5; box-shadow: 0 0 4px rgba(0, 240, 255, 0.3); }
+}
+
+.hero-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(36px, 6vw, 56px);
+  font-weight: 900;
+  line-height: 1.1;
+  color: #ffffff;
+  margin: 0 0 20px;
+  letter-spacing: -1px;
+}
+
+.hero-accent {
+  background: linear-gradient(135deg, #00f0ff, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.4);
+  max-width: 420px;
+  margin: 0 auto;
+  font-weight: 400;
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 48px 20px 24px;
+  }
+}
