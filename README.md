@@ -1,16 +1,65 @@
-# React + Vite
+# MathSpin
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+**Spin. Learn. Conquer.** An interactive spin wheel that helps Class 11 & 12 students discover math concepts.
 
-Currently, two official plugins are available:
+Each spin lands on a concept like the Quadratic Formula, Chain Rule or Bayes' Theorem, and the app:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- shows a card with the formula and a short explanation
+- reads the concept aloud using the browser's text-to-speech
+- celebrates with a confetti burst
+- tracks your progress: total spins, unique concepts, and Grade 11 vs Grade 12
 
-## React Compiler
+## Getting started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+You need [Node.js](https://nodejs.org) installed.
 
-## Expanding the Oxlint configuration
+```bash
+npm install     # install dependencies (first time only)
+npm run dev     # start the dev server, then open the URL it prints
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+Other commands:
+
+| Command           | What it does                                   |
+| ----------------- | ---------------------------------------------- |
+| `npm run build`   | Build an optimized version into `dist/`        |
+| `npm run preview` | Serve the built version locally to test it     |
+| `npm run lint`    | Check the code for mistakes with oxlint        |
+
+## Project structure
+
+```
+src/
+  main.jsx               Entry point: mounts <App /> into index.html
+  App.jsx                Top-level layout; keeps the spin history
+  components/
+    Header.jsx           Logo and BETA badge
+    Hero.jsx             Headline section
+    SpinWheel.jsx        Canvas wheel, spin animation, winner, speech
+    Stats.jsx            Counters computed from the spin history
+  data/
+    mathConcepts.js      The 16 concepts shown on the wheel
+```
+
+## Adding a concept
+
+Add an object to `src/data/mathConcepts.js`. The wheel automatically makes room for it:
+
+```js
+{
+  id: 17,
+  title: "Mean Value Theorem",
+  formula: "f'(c) = [f(b) - f(a)] / (b - a)",
+  description: "Somewhere between a and b, the instantaneous slope equals the average slope.",
+  grade: 12,
+  color: "#60a5fa",
+}
+```
+
+## Built with
+
+- [React](https://react.dev) and [Vite](https://vite.dev)
+- [canvas-confetti](https://github.com/catdad/canvas-confetti)
+- The Web Speech API for read-aloud
+
+For a line-by-line explanation of the code, see [docs/CODE_WALKTHROUGH.md](docs/CODE_WALKTHROUGH.md).
